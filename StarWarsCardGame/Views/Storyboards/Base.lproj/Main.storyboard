@@ -1,0 +1,146 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21225" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="hkQ-qL-o0R">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21207"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="collection view cell content view" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Character Collection View Controller-->
+        <scene sceneID="XfO-CK-sWK">
+            <objects>
+                <collectionViewController id="drx-KR-fY9" customClass="CharacterCollectionViewController" customModule="StarWarsCardGame" customModuleProvider="target" sceneMemberID="viewController">
+                    <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" id="xaf-6S-TlH">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="Lcf-xy-Mdg">
+                            <size key="itemSize" width="128" height="128"/>
+                            <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                            <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                            <inset key="sectionInset" minX="10" minY="10" maxX="10" maxY="0.0"/>
+                        </collectionViewFlowLayout>
+                        <cells>
+                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="characterCell" id="snW-iP-kKE" customClass="CharacterCollectionViewCell" customModule="StarWarsCardGame" customModuleProvider="target">
+                                <rect key="frame" x="10" y="10" width="128" height="128"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="fd9-wu-cQ3">
+                                    <rect key="frame" x="0.0" y="0.0" width="128" height="128"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="CQZ-Qc-ded">
+                                            <rect key="frame" x="0.0" y="0.0" width="128" height="128"/>
+                                        </imageView>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstItem="CQZ-Qc-ded" firstAttribute="leading" secondItem="fd9-wu-cQ3" secondAttribute="leading" id="Ef8-Ur-Sho"/>
+                                        <constraint firstAttribute="bottom" secondItem="CQZ-Qc-ded" secondAttribute="bottom" id="Fgo-Hz-W3x"/>
+                                        <constraint firstAttribute="trailing" secondItem="CQZ-Qc-ded" secondAttribute="trailing" id="pCG-gz-bxn"/>
+                                        <constraint firstItem="CQZ-Qc-ded" firstAttribute="top" secondItem="fd9-wu-cQ3" secondAttribute="top" id="wVZ-AE-45D"/>
+                                    </constraints>
+                                </collectionViewCellContentView>
+                                <connections>
+                                    <outlet property="characterImage" destination="CQZ-Qc-ded" id="otc-6f-MUD"/>
+                                </connections>
+                            </collectionViewCell>
+                        </cells>
+                        <connections>
+                            <outlet property="dataSource" destination="drx-KR-fY9" id="PCj-wP-mF0"/>
+                            <outlet property="delegate" destination="drx-KR-fY9" id="dTG-1B-vKJ"/>
+                        </connections>
+                    </collectionView>
+                    <navigationItem key="navigationItem" id="NCd-H8-6At">
+                        <barButtonItem key="rightBarButtonItem" image="line.3.horizontal.decrease" catalog="system" id="SoS-ii-7BN">
+                            <connections>
+                                <segue destination="TiY-fc-ik2" kind="presentation" identifier="FilterVC" id="6W5-ng-M7Y"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                </collectionViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="FQr-ic-kNH" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="894" y="59"/>
+        </scene>
+        <!--Filter View Controller-->
+        <scene sceneID="uX5-zC-ICe">
+            <objects>
+                <viewController id="TiY-fc-ik2" customClass="FilterViewController" customModule="StarWarsCardGame" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="ms8-fy-uYN">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="838"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" spacing="50" translatesAutoresizingMaskIntoConstraints="NO" id="8mY-WX-KS8">
+                                <rect key="frame" x="20.5" y="362.5" width="373" height="161"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="h7K-mZ-LLC">
+                                        <rect key="frame" x="0.0" y="0.0" width="161.5" height="161"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" secondItem="h7K-mZ-LLC" secondAttribute="height" multiplier="1:1" id="8A2-IA-oqM"/>
+                                        </constraints>
+                                        <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                        <state key="normal" title="Button" image="sith"/>
+                                        <connections>
+                                            <action selector="sithButtonTapped:" destination="TiY-fc-ik2" eventType="touchUpInside" id="87t-4p-Ulf"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RFx-Wu-GEB">
+                                        <rect key="frame" x="211.5" y="0.0" width="161.5" height="161"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" secondItem="RFx-Wu-GEB" secondAttribute="height" multiplier="1:1" id="mac-Xs-bA9"/>
+                                        </constraints>
+                                        <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                        <state key="normal" title="Button" image="jedi">
+                                            <preferredSymbolConfiguration key="preferredSymbolConfiguration"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="jediButtonTapped:" destination="TiY-fc-ik2" eventType="touchUpInside" id="qC4-Gp-NWJ"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                            </stackView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="FJT-Po-Z8T"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="8mY-WX-KS8" firstAttribute="centerY" secondItem="FJT-Po-Z8T" secondAttribute="centerY" id="NCP-j9-VNi"/>
+                            <constraint firstItem="8mY-WX-KS8" firstAttribute="width" secondItem="FJT-Po-Z8T" secondAttribute="width" multiplier="0.9" id="wQF-om-uY8"/>
+                            <constraint firstItem="8mY-WX-KS8" firstAttribute="centerX" secondItem="FJT-Po-Z8T" secondAttribute="centerX" id="yF4-lZ-Oz7"/>
+                        </constraints>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="8Gl-Pc-0A6" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1628" y="59"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="2PP-mG-F19">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="hkQ-qL-o0R" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="Yno-KA-F6F">
+                        <rect key="frame" x="0.0" y="48" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="drx-KR-fY9" kind="relationship" relationship="rootViewController" id="ByK-ML-n5i"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="MGw-vp-K8a" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="124.6376811594203" y="58.928571428571423"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="jedi" width="600" height="600"/>
+        <image name="line.3.horizontal.decrease" catalog="system" width="128" height="73"/>
+        <image name="sith" width="180" height="180"/>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>
